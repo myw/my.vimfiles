@@ -396,7 +396,7 @@ nnoremap <silent> <Leader>t :CtrlPBufTagAll<CR>
 
 " Tabularize
 vnoremap <silent> <Leader>tp :Tabularize ellipses<CR>
-vnoremap <silent> <Leader>tp :Tabularize/\.\{3}<CR>
+vnoremap <silent> <Leader>tc :Tabularize comma<CR>
 
 
 "" Common actions
