@@ -126,6 +126,7 @@ Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -355,6 +356,12 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:UltiSnipsExpandTrigger="<C-L>"
 let g:UltiSnipsJumpForwardTrigger="<C-J>"
 let g:UltiSnipsJumpBackwardTrigger="<C-K>"
+
+
+"" Markdown
+
+let g:vim_markdown_math=1
+let g:vim_markdown_folding_disabled=1
 
 
 
