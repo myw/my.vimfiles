@@ -395,6 +395,7 @@ nnoremap <silent> <Leader>q :CtrlPQuickfix<CR>
 nnoremap <silent> <Leader>t :CtrlPBufTagAll<CR>
 
 " Tabularize
+vnoremap <silent> <Leader>tp :Tabularize ellipses<CR>
 vnoremap <silent> <Leader>tp :Tabularize/\.\{3}<CR>
 
 
