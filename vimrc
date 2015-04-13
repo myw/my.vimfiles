@@ -211,7 +211,8 @@ if !exists("g:vimrc_loaded") " only run once
 
     " Mac GUI output
     if has("gui_macvim")
-      set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h12
+      " set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h12
+      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
       set transparency=1 " allow transparent bg
     endif
   else
@@ -250,6 +251,8 @@ endif
 
 " Python
 let python_highlight_all = 1
+let python_version_2 = 1
+let python_print_as_function = 1
 
 " Perl
 let perl_sync_dist = 2000 " look far back in perl files
@@ -311,6 +314,7 @@ let g:slime_paste_file = tempname()
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
 
 
 "" CtrlP
@@ -364,6 +368,10 @@ let g:vim_markdown_math=1
 let g:vim_markdown_folding_disabled=1
 
 
+"" Solarized
+
+let g:solarized_menu=0
+
 
 """ Custom shortcuts and keybindings
 
@@ -392,7 +400,7 @@ nnoremap <silent> <Leader>gr :Gread<CR>
 
 "" Call plugins
 
-nnoremap <silent> <Leader>nt :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>nt :NERDTreeToggle %:p:h<CR>
 nnoremap <silent> <Leader>tl :TlistToggle<CR>
 if version >= 703
   nnoremap <silent> <Leader>gu :GundoToggle<CR>
