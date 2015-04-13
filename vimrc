@@ -144,6 +144,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'vim-latex/vim-latex'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
+Plug 'zaiste/tmux.vim'
 
 " Personal plugins
 Plug '~/.vim/plugged_custom/personal'
