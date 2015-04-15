@@ -288,10 +288,13 @@ let g:syntastic_auto_loc_list=2
 let g:syntastic_error_symbol = '✗'         " better :sign interface symbols
 let g:syntastic_warning_symbol = '!'
 
+let g:syntastic_javascript_checkers = ['jscs', 'jsxhint']
 " Check *.jsx files with JSXhint by default
-autocmd BufNewFile,BufRead *.jsx let b:syntastic_checkers = ["jsxhint"]
+autocmd BufNewFile,BufRead *.jsx let b:syntastic_checkers = ['jsxhint']
+
 
 "" Fugitive
+
 autocmd BufReadPost fugitive://* set bufhidden=delete " delete fugitive buffers
                                                       " when you close them
 
