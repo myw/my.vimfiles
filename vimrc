@@ -298,10 +298,10 @@ autocmd BufReadPost fugitive://* set bufhidden=delete " delete fugitive buffers
 "" CSV
 
 " Make the columns look good in solarized
-hi CSVColumnEven term=NONE cterm=NONE ctermfg=12 ctermbg=NONE gui=NONE guibg=NONE
-hi CSVColumnOdd term=NONE cterm=NONE ctermfg=12 ctermbg=7 gui=NONE guibg=NONE
-hi CSVColumnHeaderEven term=bold cterm=bold ctermfg=12 gui=bold
-hi CSVColumnHeaderOdd term=bold cterm=bold ctermfg=12 ctermbg=7 gui=bold
+hi CSVColumnEven       term=NONE cterm=NONE ctermfg=12 ctermbg=NONE gui=NONE guibg=NONE
+hi CSVColumnOdd        term=NONE cterm=NONE ctermfg=12 ctermbg=7    gui=NONE
+hi CSVColumnHeaderEven term=bold cterm=bold ctermfg=12 ctermbg=NONE gui=bold guibg=NONE
+hi CSVColumnHeaderOdd  term=bold cterm=bold ctermfg=12 ctermbg=7    gui=bold
 
 
 "" Slime for tmux
