@@ -327,6 +327,13 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = {
+    \ 'types': {
+        \ 1: ['.git', 'git -C %s ls-files . --cached --exclude-standard --others'],
+        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ },
+    \ 'fallback': 'find %s -type f'
+\ }
 
 
 "" TagList
