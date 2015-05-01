@@ -215,7 +215,11 @@ if !exists("g:vimrc_loaded") " only run once
       set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
       set transparency=1 " allow transparent bg
     endif
-  else
+  endif
+
+
+  """ Mouse functionality in terminal
+  if !has("gui_running")
     set mouse=a          " most functional mouse mode when in a terminal
   endif
 end
