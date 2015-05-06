@@ -204,7 +204,8 @@ if !exists("g:vimrc_loaded") " only run once
   "" GUI output
 
   if has("gui_running")
-    set columns=90       " set default window
+    set columns=165      " set default window size
+    set lines=50
     set winaltkeys=no    " kill windows altkeys in for TeX Macros
     set guioptions-=T    " autohide toolbar
     set antialias        " smooth fonts by default
