@@ -121,6 +121,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'hdima/python-syntax'
 Plug 'honza/vim-snippets'
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'justincampbell/vim-eighties'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
 Plug 'lazywei/vim-matlab'
@@ -393,6 +394,10 @@ let g:vim_markdown_folding_disabled=1
 "" Solarized
 
 let g:solarized_menu=0
+
+"" Vim-Eighties
+let g:eighties_extra_width = 5
+let g:eighties_bufname_additional_patterns = ['fugitiveblame']
 
 
 """ Custom shortcuts and keybindings
