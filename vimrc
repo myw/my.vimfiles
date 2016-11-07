@@ -110,6 +110,7 @@ syntax enable
 "" Load plugins (run by vim-plug)
 call plug#begin('~/.vim/plugged')
 
+Plug 'airblade/vim-rooter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-airline/vim-airline'
@@ -424,9 +425,8 @@ let g:eighties_bufname_additional_patterns = ['fugitiveblame']
 "" vim-editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-""" Custom shortcuts and keybindings
-
-
+"" Rooter
+let g:rooter_use_lcd = 1
 "" Split buffer vertically, like vsp
 
 cnoreabbrev vsb vert sb
