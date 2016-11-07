@@ -353,8 +353,8 @@ let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
 
 "" CtrlP
 
-let g:ctrlp_extensions = ['buffertag', 'mix', 'quickfix', 'dir', 'line']
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_extensions = ['buffertag', 'mixed', 'quickfix', 'dir', 'line']
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'ra'
@@ -365,6 +365,9 @@ let g:ctrlp_user_command = {
     \ },
     \ 'fallback': 'find %s -type f'
 \ }
+let g:ctrlp_switch_buffer='Etvh'
+let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|.*\.tmp/.*' " MacOSX/Linux
+let g:ctrlp_mruf_max = 10
 
 
 "" TagList
@@ -451,7 +454,6 @@ if v:version >= 703
   nnoremap <silent> <Leader>gu :GundoToggle<CR>
 endif
 
-nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <Leader>q :CtrlPQuickfix<CR>
 nnoremap <silent> <Leader>t :CtrlPBufTagAll<CR>
 
