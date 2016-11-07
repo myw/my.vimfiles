@@ -111,12 +111,14 @@ syntax enable
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-rooter'
+Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'django.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'elzr/vim-json'
 Plug 'ervandew/ag'
 Plug 'fs111/pydoc.vim'
 Plug 'godlygeek/tabular'
@@ -128,9 +130,11 @@ Plug 'justincampbell/vim-eighties'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
 Plug 'lazywei/vim-matlab'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'matchit.zip'
 Plug 'mlint.vim'
+Plug 'Modeliner'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -145,7 +149,9 @@ Plug 'Shougo/vinarise.vim'
 Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
 Plug 'SmartCase'
+Plug 'syngan/vim-vimlint'
 Plug 'taglist.vim'
+Plug 'thinca/vim-localrc'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-dispatch'
@@ -157,6 +163,8 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'vim-latex/vim-latex'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
+Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'ynkdir/vim-vimlparser'
 Plug 'zaiste/tmux.vim'
 
 "" Personal plugins
@@ -418,7 +426,9 @@ let g:vim_markdown_folding_disabled=1
 
 let g:solarized_menu=0
 
+
 "" Vim-Eighties
+
 let g:eighties_extra_width = 5
 let g:eighties_bufname_additional_patterns = ['fugitiveblame']
 
@@ -428,6 +438,11 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 "" Rooter
 let g:rooter_use_lcd = 1
+
+
+""" Custom shortcuts and keybindings
+
+
 "" Split buffer vertically, like vsp
 
 cnoreabbrev vsb vert sb
