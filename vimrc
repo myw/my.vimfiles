@@ -162,6 +162,7 @@ Plug 'zaiste/tmux.vim'
 "" Personal plugins
 Plug '~/.vim/plugged_custom/personal'
 Plug '~/.vim/plugged_custom/ginkgo'
+Plug '~/.vim/plugged_custom/vim-polymer'
 
 call plug#end()
 
