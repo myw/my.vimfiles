@@ -2,6 +2,7 @@
 " Maintainer: Mikhail Wolfson <mywolfson@gmail.com>
 " Last Change:  2015-04-09
 
+scriptencoding utf-8
 
 """ Device-independent settings
 
@@ -13,8 +14,8 @@ set nocompatible
 set autowrite
 
 " More easily accessible leaders
-let mapleader = ","
-let maplocalleader = ","
+let g:mapleader = ','
+let g:maplocalleader = ','
 
 
 "" Common indentation settings
@@ -157,7 +158,7 @@ Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 Plug 'zaiste/tmux.vim'
 
-" Personal plugins
+"" Personal plugins
 Plug '~/.vim/plugged_custom/personal'
 Plug '~/.vim/plugged_custom/ginkgo'
 
@@ -239,7 +240,7 @@ end
 "" Automatic Commands
 
 if has("autocmd") && !exists("autocommands_loaded") " only run once
-  let autocommands_loaded = 1
+  let g:autocommands_loaded = 1
 
   " When editing a file, always jump to the last cursor position
   autocmd BufReadPost *
@@ -255,6 +256,9 @@ if has("autocmd") && !exists("autocommands_loaded") " only run once
         \   setf markdown |
         \ endif
 
+  " Delete fugitive buffers when you close them
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+
 endif
 
 
@@ -265,17 +269,17 @@ endif
 "" Filetype-plugin-specific settings
 
 " Python
-let python_highlight_all = 1
-let python_version_2 = 1
-let python_print_as_function = 1
+let g:python_highlight_all = 1
+let g:python_version_2 = 1
+let g:python_print_as_function = 1
 
 " Perl
-let perl_sync_dist = 2000 " look far back in perl files
-let perl_extended_vars=1
-let perl_include_pod = 1
+let g:perl_sync_dist = 2000 " look far back in perl files
+let g:perl_extended_vars=1
+let g:perl_include_pod = 1
 
 " HTML
-let html_extended_events=1
+let g:html_extended_events=1
 
 
 "" Solarized colorscheme
@@ -308,10 +312,6 @@ let g:syntastic_javascript_checkers = ['jscs', 'jsxhint']
 autocmd BufNewFile,BufRead *.jsx let b:syntastic_checkers = ['jsxhint']
 
 
-"" Fugitive
-
-autocmd BufReadPost fugitive://* set bufhidden=delete " delete fugitive buffers
-                                                      " when you close them
 
 "" CSV
 
@@ -353,16 +353,16 @@ let g:ctrlp_user_command = {
 
 "" TagList
 
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Close_On_Select = 1
-let Tlist_WinWidth = 35
+let g:Tlist_Show_One_File = 1
+let g:Tlist_Exit_OnlyWindow = 1
+let g:Tlist_GainFocus_On_ToggleOpen = 1
+let g:Tlist_Close_On_Select = 1
+let g:Tlist_WinWidth = 35
 
 
 "" NERDCommenter
 
-let NERDSpaceDelims = 1 " add extra space around delimiters
+let g:NERDSpaceDelims = 1 " add extra space around delimiters
 
 
 "" easytags
@@ -431,7 +431,7 @@ nnoremap <silent> <Leader>gr :Gread<CR>
 
 nnoremap <silent> <Leader>nt :NERDTreeToggle %:p:h<CR>
 nnoremap <silent> <Leader>tl :TlistToggle<CR>
-if version >= 703
+if v:version >= 703
   nnoremap <silent> <Leader>gu :GundoToggle<CR>
 endif
 
@@ -457,8 +457,12 @@ nnoremap <silent> <Leader>erc :sp $MYVIMRC<CR>      " .vimrc edits
 nnoremap <silent> <Leader>src :so $MYVIMRC<CR>
 
 " Toggle expand-tab for a region
-vnoremap <silent> <Leader>tt :<C-U>set et! <Bar> '<,'> retab!<Bar> set et!<CR>
+vnoremap <silent> <Leader>tt :<C-U>set et! <Bar> '<,'> retab! <Bar> set et!<CR>
 
+" Paste directly from the clipboard in insert mode
+if v:version >= 703
+  imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
+endif
 
 "" Functions and macros
 
@@ -484,10 +488,6 @@ endfunction
 
 nnoremap <silent> <Leader>r :call ToggleRelNum()<CR>
 
-" Paste directly from the clipboard in insert mode
-if version >= 703
-  imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
-endif
 
 "" Set flag allowing content to only run once
 
