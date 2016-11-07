@@ -421,6 +421,9 @@ let g:eighties_extra_width = 5
 let g:eighties_bufname_additional_patterns = ['fugitiveblame']
 
 
+"" vim-editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 """ Custom shortcuts and keybindings
 
 
