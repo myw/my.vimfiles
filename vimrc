@@ -256,6 +256,9 @@ if has("autocmd") && !exists("autocommands_loaded") " only run once
         \   setf markdown |
         \ endif
 
+  " Check *.jsx files with JSXhint by default
+  autocmd BufNewFile,BufRead *.jsx let b:syntastic_checkers = ['jsxhint']
+
   " Delete fugitive buffers when you close them
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
@@ -281,8 +284,21 @@ let g:perl_include_pod = 1
 " HTML
 let g:html_extended_events=1
 
+" JavaScript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+" let g:javascript_conceal_function       = '𝒇'
+" let g:javascript_conceal_null           = '∅'
+" let g:javascript_conceal_this           = '⬥'
+" let g:javascript_conceal_return         = '↤'
+" let g:javascript_conceal_undefined      = '⸮'
+" let g:javascript_conceal_NaN            = '무'
+" let g:javascript_conceal_prototype      = '¶'
+" let g:javascript_conceal_static         = '◇'
+" let g:javascript_conceal_super          = '𝝮'
+" let g:javascript_conceal_arrow_function = '⇒'
 
-"" Solarized colorscheme
+" Solarized colorscheme
 
 if !exists("g:vimrc_loaded") " only run once
   set background=light
@@ -304,14 +320,14 @@ let g:syntastic_enable_signs=1             " use the sidebar for signs
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=2
 
-let g:syntastic_error_symbol = '✗'         " better :sign interface symbols
-let g:syntastic_warning_symbol = '!'
+let g:syntastic_error_symbol = ''        " better :sign interface symbols
+let g:syntastic_warning_symbol = ''
+let g:syntastic_style_error_symbol = 's◆'
+let g:syntastic_style_warning_symbol = 's◇'
 
-let g:syntastic_javascript_checkers = ['jscs', 'jsxhint']
-" Check *.jsx files with JSXhint by default
-autocmd BufNewFile,BufRead *.jsx let b:syntastic_checkers = ['jsxhint']
-
-
+let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_polymerhtml_checkers = ['gulplint']
+" let g:syntastic_python_checkers = ['flake8', 'pylint']
 
 "" CSV
 
@@ -445,7 +461,6 @@ vnoremap <silent> <Leader>tc :Tabularize comma<CR>
 
 
 "" Common actions
-
 nnoremap <silent> <Leader>n :silent :nohlsearch<CR> " turn off highlighting
 nnoremap <silent> <Leader>w :set nowrap!<CR>        " word wrapping
 nnoremap <silent> <Leader>s :set nolist!<CR>        " show hidden chars
@@ -472,7 +487,7 @@ vnoremap <C-h> ""y:%s/<C-R>=escape(@", '/\')<CR>//gc<Left><Left><Left>
 " Toggle relative/normal numbering
 function! ToggleRelNum()
   if &number
-    if version >= 702
+    if v:version >= 702
       if &relativenumber
         setlocal norelativenumber
       else
@@ -487,6 +502,18 @@ function! ToggleRelNum()
 endfunction
 
 nnoremap <silent> <Leader>r :call ToggleRelNum()<CR>
+
+" Toggle conceal level
+" default to non-concealed
+function! ToggleConceal()
+  if &conceallevel > 0
+    setlocal conceallevel=0
+  else
+    setlocal conceallevel=1
+  endif
+endfunction
+
+nnoremap <silent> <Leader>c :call ToggleConceal()<CR>
 
 
 "" Set flag allowing content to only run once
