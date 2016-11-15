@@ -317,6 +317,11 @@ if !exists("g:vimrc_loaded") " only run once
 end
 
 
+"" Ag
+
+let g:AgSmartCase=1
+
+
 "" LaTeX-Suite
 
 " IMPORTANT: grep skips displaying the file name if there is only one file.
