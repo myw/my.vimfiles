@@ -450,6 +450,15 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:rooter_use_lcd = 1
 
 
+"" GitGutter
+
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '▲'
+let g:gitgutter_sign_removed = '▂'
+let g:gitgutter_sign_modified_removed = '▲̳'
+
+
+
 """ Custom shortcuts and keybindings
 
 
