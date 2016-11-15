@@ -8,8 +8,10 @@ scriptencoding utf-8
 
 
 "" Basics
-
 " Use Vim defaults, rather than Vi-compatible ones
+unlet! g:skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 set nocompatible
 set autowrite
 
@@ -61,7 +63,7 @@ set history=1000 " keep 1000 lines of command line history
 set hidden                   " deal with hidden buffers effectively
 set wildchar=<TAB>           " do more reasonable, bash-like filename completion
 set wildmenu
-set wildmode=longest:full
+set wildmode=longest:full,full
 
 set completeopt=menu,preview " set richer UI options for the completion window
 
@@ -439,9 +441,12 @@ let g:eighties_bufname_additional_patterns = ['fugitiveblame']
 
 
 "" vim-editorconfig
+
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
+
 "" Rooter
+
 let g:rooter_use_lcd = 1
 
 
