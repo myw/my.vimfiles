@@ -28,6 +28,7 @@ set linebreak     " break at words - MYW 12/27/05
 
 set softtabstop=4 " each shift is 4 spaces
 set shiftwidth=4  " each shift is 4 spaces
+set smarttab
 set tabstop=4     " tabs turn into 4 spaces
 set backspace=2   " allow backspacing over everything in insert mode
 set modeline
@@ -116,6 +117,7 @@ Plug 'airblade/vim-rooter'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'ciaranm/detectindent'
 Plug 'dearrrfish/vim-applescript'
 Plug 'django.vim'
 Plug 'editorconfig/editorconfig-vim'
@@ -289,6 +291,9 @@ if has("autocmd") && !exists("autocommands_loaded") " only run once
 
   " Delete fugitive buffers when you close them
   autocmd BufReadPost fugitive://* set bufhidden=delete
+
+  " Run DetectIndent on file load
+  autocmd FileType,BufWinEnter * DetectIndent
 
 endif
 
@@ -479,6 +484,11 @@ let g:gitgutter_sign_removed = '▂'
 let g:gitgutter_sign_modified_removed = '▲̳'
 
 
+"" DetectIndent
+
+let g:detectindent_preferred_expandtab = 1
+let g:detectindent_preferred_indent = 4
+let g:detectindent_max_lines_to_analyse = 1024
 
 """ Custom shortcuts and keybindings
 
