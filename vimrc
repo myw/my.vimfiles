@@ -82,7 +82,7 @@ set report=0                 " aggressive reporting
 
 
 "" Custom special charascters
-set listchars=tab:▶—,trail:_,eol:¬,extends:»,precedes:« " hidden characters
+set listchars=tab:▶—,trail:␣,eol:↵,extends:»,precedes:« " hidden characters
 set showbreak=»                                         " line wraps
 
 
@@ -116,6 +116,7 @@ Plug 'airblade/vim-rooter'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'dearrrfish/vim-applescript'
 Plug 'django.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
@@ -521,6 +522,8 @@ nnoremap <silent> <Leader>s :set nolist!<CR>        " show hidden chars
 nnoremap <silent> <Leader>f :set columns=400<CR>    " full screen full-width
 nnoremap <silent> <Leader>m :Make<CR>               " run :Make
 nnoremap <silent> <Leader>bd :bufdo diffoff<CR>     " diff off for all buffers
+
+nnoremap <silent> <leader>! :!"%:p"<CR>             " execute current file in shell
 
 nnoremap <silent> <Leader>erc :sp $MYVIMRC<CR>      " .vimrc edits
 nnoremap <silent> <Leader>src :so $MYVIMRC<CR>
