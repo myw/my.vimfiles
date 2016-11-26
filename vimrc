@@ -127,6 +127,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'hdima/python-syntax'
 Plug 'honza/vim-snippets'
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'justincampbell/vim-eighties'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
@@ -416,6 +417,11 @@ let g:Tlist_WinWidth = 35
 let g:NERDSpaceDelims = 1 " add extra space around delimiters
 
 
+"" NERDTree
+
+let g:nerdtree_tabs_open_on_gui_startup = 0
+
+
 "" easytags
 
 let g:easytags_by_filetype = '~/.vim/tags'
@@ -501,7 +507,7 @@ nnoremap <silent> <Leader>gr :Gread<CR>
 
 "" Call plugins
 
-nnoremap <silent> <Leader>nt :NERDTreeToggle %:p:h<CR>
+nnoremap <silent> <Leader>nt :NERDTreeTabsToggle<CR>
 nnoremap <silent> <Leader>tl :TlistToggle<CR>
 if v:version >= 703
   nnoremap <silent> <Leader>gu :GundoToggle<CR>
