@@ -244,8 +244,14 @@ if !exists("g:vimrc_loaded") " only run once
     " Mac GUI output
     if has("gui_macvim")
       " set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h12
+      " Special font for Powerline/Airline symbols
       set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
-      set transparency=1 " allow transparent bg
+
+      set transparency=12 " transparent, blurry bg
+      set blurradius=20
+
+      " maximize on fullscreen and make bg solid
+      set fuoptions=maxvert,maxhorz,background:#aafdf6e3
     endif
   endif
 
