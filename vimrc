@@ -193,82 +193,89 @@ call plug#end()
 
 """ Capability or device-dependent settings
 
+"" Only once
 
 if !exists("g:vimrc_loaded") " only run once
-
-
-  "" Persistent undo
-
-  if has("persistent_undo")
-    set undofile
-    set undodir=~/.vim/undo
-  endif
-
-
-  "" Colored output
-
-  if &t_Co > 2 || has("gui_running")
-    syntax on
-    set hlsearch
-    set incsearch
-
-    set cursorline
-    if v:version >= 703
-      set colorcolumn=80
-    endif
-  endif
-
-
-  "" XTerm-compatible output
-
-  if &term=="xterm"
-    set t_Co=8
-    set t_Sb=[4%dm
-    set t_Sf=[3%dm
-    syntax on
-  endif
-
-
-  "" Screen and tmux
-
-  if &term=="screen"
-    let &term="screen-256color" " use all available colors
-    set ttymouse=xterm2         " full mouse capability
-  endif
-
 
   "" GUI output
 
   if has("gui_running")
-    set columns=165      " set default window size
-    set lines=50
+    set columns=200      " set default window size
+    set lines=80
     set winaltkeys=no    " kill windows altkeys in for TeX Macros
     set guioptions-=T    " autohide toolbar
     set antialias        " smooth fonts by default
-
-    " Mac GUI output
-    if has("gui_macvim")
-      " set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h12
-      " Special font for Powerline/Airline symbols
-      set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
-
-      set transparency=12 " transparent, blurry bg
-      set blurradius=20
-
-      " maximize on fullscreen and make bg solid
-      set fuoptions=maxvert,maxhorz,background:#aafdf6e3
-    endif
   endif
 
 
-  """ Mouse functionality in terminal
+  "" Mouse functionality in terminal
+
   if !has("gui_running")
     set mouse=a          " most functional mouse mode when in a terminal
   endif
 end
 
 
-"" Automatic Commands
+"" Run every time
+
+
+"" Persistent undo
+
+if has("persistent_undo")
+  set undofile
+  set undodir=~/.vim/undo
+endif
+
+
+"" Colored output
+
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+  set incsearch
+
+  set cursorline
+  if v:version >= 703
+    set colorcolumn=80
+  endif
+endif
+
+
+"" XTerm-compatible output
+
+if &term=="xterm"
+  set t_Co=8
+  set t_Sb=[4%dm
+  set t_Sf=[3%dm
+  syntax on
+endif
+
+
+"" Screen and tmux
+
+if &term=="screen"
+  let &term="screen-256color" " use all available colors
+  set ttymouse=xterm2         " full mouse capability
+endif
+
+
+"" MacVim GUI
+
+if has("gui_running") && has("gui_macvim")
+  " set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h12
+  " Special font for Powerline/Airline symbols
+  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+
+  set transparency=7 " transparent, blurry bg
+  set blurradius=15
+
+  " maximize on fullscreen and make bg solid
+  set fuoptions=maxvert,maxhorz,background:#FFE8E1CB
+endif
+
+
+
+""" Automatic Commands
 
 if has("autocmd") && !exists("autocommands_loaded") " only run once
   let g:autocommands_loaded = 1
