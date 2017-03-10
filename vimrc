@@ -451,7 +451,11 @@ let g:Tlist_WinWidth = 35
 "" NERDCommenter
 
 let g:NERDSpaceDelims = 1 " add extra space around delimiters
-
+let g:NERDTrimTrailingWhitespace = 1 " add extra space around delimiters
+let g:NERDCompactSexyComs = 1 " compact sexy comments
+let g:NERDCustomDelimiters = {
+    \ 'html': { 'left': '<!--',  'right': '-->', 'leftAlt': '/*', 'rightAlt': '*/' },
+\ }
 
 "" NERDTree
 
