@@ -135,6 +135,7 @@ Plug 'justincampbell/vim-eighties'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
 Plug 'lazywei/vim-matlab'
+Plug 'lokikl/vim-ctrlp-ag'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'matchit.zip'
@@ -352,6 +353,12 @@ end
 
 let g:AgSmartCase=1
 
+" Use ag as greppgrg as well
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+end
+
+
 
 "" LaTeX-Suite
 
@@ -399,7 +406,7 @@ let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
 
 "" CtrlP
 
-let g:ctrlp_extensions = ['buffertag', 'mixed', 'quickfix', 'dir', 'line']
+let g:ctrlp_extensions = ['buffertag', 'mixed', 'quickfix', 'dir', 'line', 'ag']
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 0
@@ -415,6 +422,10 @@ let g:ctrlp_switch_buffer='Etvh'
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|.*\.tmp/.*' " MacOSX/Linux
 let g:ctrlp_mruf_max = 10
 
+" Use ag in CtrlP as a fallback for listing files in ctrlp
+if executable('ag')
+  let g:ctrlp_user_command.fallback = 'ag %s -l --nocolor -g ""'
+endif
 
 "" TagList
 
@@ -533,6 +544,9 @@ endif
 
 nnoremap <silent> <Leader>q :CtrlPQuickfix<CR>
 nnoremap <silent> <Leader>t :CtrlPBufTagAll<CR>
+nnoremap <silent> <C-f> :CtrlPag<CR>
+vnoremap <silent> <C-f> :CtrlPagVisual<CR>
+
 
 " Tabularize
 vnoremap <silent> <Leader>tp :Tabularize ellipses<CR>
