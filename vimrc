@@ -348,7 +348,7 @@ let g:javascript_plugin_flow = 1
 if !exists("g:vimrc_loaded") " only run once
   set background=light
   colorscheme solarized
-  call togglebg#map("<leader>bg")
+  call togglebg#map("<Leader>bg")
 end
 
 
@@ -368,6 +368,7 @@ end
 " IMPORTANT: grep skips displaying the file name if there is only one file.
 " This confuses LaTeX-Suite
 set grepprg=grep\ -nH\ $* " always show the filename
+
 
 
 "" Syntastic
@@ -602,23 +603,24 @@ nnoremap <silent> <Leader>f :set columns=400<CR>    " full screen full-width
 nnoremap <silent> <Leader>m :Make<CR>               " run :Make
 nnoremap <silent> <Leader>bd :bufdo diffoff<CR>     " diff off for all buffers
 
-nnoremap <silent> <leader>! :!"%:p"<CR>             " execute current file in shell
+nnoremap <silent> <Leader>! :!"%:p"<CR>             " execute current file in shell
 
-nnoremap <silent> <Leader>erc :sp $MYVIMRC<CR>      " .vimrc edits
-nnoremap <silent> <Leader>src :so $MYVIMRC<CR>
+nnoremap <silent> <Leader>erc :vsp $MYVIMRC<CR>      " .vimrc edits
+nnoremap <silent> <Leader>src :source $MYVIMRC<CR>
 
 " Toggle expand-tab for a region
-vnoremap <silent> <Leader>tt :<C-U>set et! <Bar> '<,'> retab! <Bar> set et!<CR>
+vnoremap <silent> <Leader>tt :<C-u>set et! <Bar> '<,'> retab! <Bar> set et!<CR>
 
 " Paste directly from the clipboard in insert mode
 if v:version >= 703
-  imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
+  imap <Leader>v  <C-o>:set paste<CR><C-r>*<C-o>:set nopaste<CR>
 endif
+
 
 "" Functions and macros
 
 " Work with (search for and replace) selected text
-vnoremap <C-h> ""y:%s/<C-R>=escape(@", '/\')<CR>//gc<Left><Left><Left>
+vnoremap <C-h> ""y:%s/<C-r>=escape(@", '/\')<CR>//gc<Left><Left><Left>
 
 " Toggle relative/normal numbering
 function! ToggleRelNum()
