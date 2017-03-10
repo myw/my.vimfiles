@@ -95,9 +95,10 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 endif
 
 
-"" Backups
+"" Backups and swap files
 
 set bdir=~/.vim/bak,~/.tmp,/tmp " organize backups in one place
+set directory=~/.vim/swap,.,~/.tmp,/var/tmp,/tmp
 
 
 
