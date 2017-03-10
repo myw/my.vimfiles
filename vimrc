@@ -130,6 +130,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'hdima/python-syntax'
 Plug 'honza/vim-snippets'
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'justincampbell/vim-eighties'
 Plug 'kchmck/vim-coffee-script'
@@ -451,8 +452,10 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:easytags_by_filetype = '~/.vim/tags'
 let g:easytags_async = 1
 let g:easytags_on_cursorhold = 1
+" XXX keep auto_highlight off: it's too slow and messes with YCM
 let g:easytags_auto_highlight = 0
-let g:easytags_syntax_keyword = 'always'
+let g:easytags_syntax_keyword = 'auto'
+let g:easytags_resolve_links = 1
 
 
 "" YouCompleteMe
@@ -542,11 +545,14 @@ if v:version >= 703
   nnoremap <silent> <Leader>gu :GundoToggle<CR>
 endif
 
+" CtrlP
 nnoremap <silent> <Leader>q :CtrlPQuickfix<CR>
 nnoremap <silent> <Leader>t :CtrlPBufTagAll<CR>
 nnoremap <silent> <C-f> :CtrlPag<CR>
 vnoremap <silent> <C-f> :CtrlPagVisual<CR>
 
+nnoremap          <Leader>ll :CtrlPagLocate<Space>
+nnoremap <silent> <Leader>lp :CtrlPagPrevious<CR>
 
 " Tabularize
 vnoremap <silent> <Leader>tp :Tabularize ellipses<CR>
