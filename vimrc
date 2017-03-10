@@ -525,7 +525,7 @@ let g:gitgutter_sign_modified_removed = '▲̳'
 "" DetectIndent
 
 let g:detectindent_preferred_expandtab = 1
-let g:detectindent_preferred_indent = 4
+let g:detectindent_preferred_indent = 2
 let g:detectindent_max_lines_to_analyse = 1024
 
 """ Custom shortcuts and keybindings
