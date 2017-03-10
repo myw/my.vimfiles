@@ -384,7 +384,7 @@ let g:syntastic_style_warning_symbol = 's◇'
 
 let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_polymerhtml_checkers = ['gulplint']
-" let g:syntastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_python_checkers = ['flake8', 'pylint']
 
 "" CSV
 
