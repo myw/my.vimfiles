@@ -370,6 +370,12 @@ end
 set grepprg=grep\ -nH\ $* " always show the filename
 
 
+"" Man plugin
+
+set keywordprg=:Man
+let g:ft_man_open_mode = 'vert'
+let g:ft_man_folding_enable = 1
+
 
 "" Syntastic
 
