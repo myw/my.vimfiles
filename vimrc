@@ -164,17 +164,17 @@ Plug 'taglist.vim'
 Plug 'thinca/vim-localrc'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tomtom/tlib_vim'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'  " Change cases
+Plug 'tpope/vim-commentary'  " Comment lines with 'gcc'
+Plug 'tpope/vim-dispatch'  " Async
+Plug 'tpope/vim-fugitive'  " Git support
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-jdaddy'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-obsession'  " Session management
+Plug 'tpope/vim-repeat'  " More powerful .
+Plug 'tpope/vim-rhubarb'  " GitHub support for vim-fugitive
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-tbone'  " Tmux interaction
 Plug 'tpope/vim-unimpaired'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
