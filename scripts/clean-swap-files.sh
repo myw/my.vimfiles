@@ -14,9 +14,9 @@ RECFN="$TMPDIR/vim.recovery.$USER.fn"
 # Clean up our own mess if we're ever cancelled
 trap 'rm -f "$RECTXT" "$RECFN"; rmdir "$TMPDIR"' 0 1 2 3 15
 
-SWAPDIR=~/.vim/swap
+VIM_SWAP_DIR=${VIM_SWAP_DIR:-~/.vim/swap}
 
-for swapfile in $SWAPDIR/.*sw? $SWAPDIR/*; do
+for swapfile in $VIM_SWAP_DIR/.*sw? $VIM_SWAP_DIR/*.sw?; do
 
   # Only deal with real files
   [[ -f $swapfile ]] || continue
@@ -27,11 +27,11 @@ for swapfile in $SWAPDIR/.*sw? $SWAPDIR/*; do
   # Load the contents of the recovered file and save its filename to $RECFN
   vim -X -r "$swapfile" \
       -c "w! $RECTXT" \
-      -c "let fn=expand('%')" \
+      -c "let fn=expand('%:p')" \
       -c "new $RECFN" \
       -c "exec setline( 1, fn )" \
       -c w\! \
-      -c "qa"
+      -c "qa!"
 
   if [[ ! -f $RECFN ]]; then
     echo "- removing empty swap file $swapfile"
@@ -47,12 +47,12 @@ for swapfile in $SWAPDIR/.*sw? $SWAPDIR/*; do
 
     rm -f "$swapfile"
   else
-    echo "- swap file $q contains changes: editing"
+    echo "- swap file $swapfile contains changes: editing"
 
     vim -n -d "$currentfile" "$RECTXT"
 
     # Break early if we don't decide to delete the swap file
-    rm -i "$q" || exit
+    rm -i "$swapfile" || exit
   fi
 done
 
