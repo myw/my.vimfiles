@@ -163,6 +163,7 @@ Plug 'syngan/vim-vimlint'
 Plug 'taglist.vim'
 Plug 'thinca/vim-localrc'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-abolish'  " Change cases
 Plug 'tpope/vim-commentary'  " Comment lines with 'gcc'
