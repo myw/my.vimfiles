@@ -114,44 +114,43 @@ syntax enable
 "" Load plugins (run by vim-plug)
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-rooter'
 Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'roryokane/detectindent'
 Plug 'dearrrfish/vim-applescript'
 Plug 'django.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
 Plug 'ervandew/ag'
 Plug 'fs111/pydoc.vim'
-Plug 'godlygeek/tabular'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'godlygeek/tabular'
 Plug 'hdima/python-syntax'
 Plug 'honza/vim-snippets'
-Plug 'jmcantrell/vim-virtualenv'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'jmcantrell/vim-virtualenv'
 Plug 'justincampbell/vim-eighties'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
 Plug 'lambdatoast/elm.vim'
 Plug 'lazywei/vim-matlab'
 Plug 'lokikl/vim-ctrlp-ag'
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'matchit.zip'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'mlint.vim'
 Plug 'Modeliner'
 Plug 'monokrome/vim-lazy-obsession'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mxw/vim-jsx'
-Plug 'vernonrj/vim-lasttab'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'noc7c9/vim-iced-coffee-script'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'noc7c9/vim-iced-coffee-script'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
+Plug 'roryokane/detectindent'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -165,19 +164,20 @@ Plug 'thinca/vim-localrc'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tomtom/tlib_vim'
-Plug 'tpope/vim-abolish'  " Change cases
-Plug 'tpope/vim-commentary'  " Comment lines with 'gcc'
-Plug 'tpope/vim-dispatch'  " Async
-Plug 'tpope/vim-fugitive'  " Git support
+Plug 'tpope/vim-abolish'    " Change cases
+Plug 'tpope/vim-commentary' " Comment lines with 'gcc'
+Plug 'tpope/vim-dispatch'   " Async
+Plug 'tpope/vim-fugitive'   " Git support
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-jdaddy'
 Plug 'tpope/vim-obsession'  " Session management
-Plug 'tpope/vim-repeat'  " More powerful .
-Plug 'tpope/vim-rhubarb'  " GitHub support for vim-fugitive
+Plug 'tpope/vim-repeat'     " More powerful .
+Plug 'tpope/vim-rhubarb'    " GitHub support for vim-fugitive
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-tbone'  " Tmux interaction
+Plug 'tpope/vim-tbone'      " Tmux interaction
 Plug 'tpope/vim-unimpaired'
 Plug 'Valloric/YouCompleteMe'
+Plug 'vernonrj/vim-lasttab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-latex/vim-latex'
@@ -271,7 +271,7 @@ if has("gui_running") && has("gui_macvim")
   " Special font for Powerline/Airline symbols
   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 
-  set transparency=7 " transparent, blurry bg
+  set transparency=3 " transparent, blurry bg
   set blurradius=15
 
   " maximize on fullscreen and make bg solid
