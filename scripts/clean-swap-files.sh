@@ -12,20 +12,26 @@ RECTXT="$TMPDIR/vim.recovery.$USER.txt"
 RECFN="$TMPDIR/vim.recovery.$USER.fn"
 
 # Clean up our own mess if we're ever cancelled
-trap 'rm -f "$RECTXT" "$RECFN"; rmdir "$TMPDIR"' 0 1 2 3 15
+trap 'rm -f "$RECTXT" "$RECFN"; rm -rf "$TMPDIR"' 0 1 2 3 15
 
 VIM_SWAP_DIR=${VIM_SWAP_DIR:-~/.vim/swap}
 
+swap_count=0
 for swapfile in $VIM_SWAP_DIR/.*sw? $VIM_SWAP_DIR/*.sw?; do
 
   # Only deal with real files
-  [[ -f $swapfile ]] || continue
+  if [[ -f $swapfile ]]; then
+    let swap_count++
+  else
+    continue
+  fi
 
   # Clean up any work from the previous recovery
   rm -f "$RECTXT" "$RECFN"
 
   # Load the contents of the recovered file and save its filename to $RECFN
   vim -X -r "$swapfile" \
+      -c "set binary; set nofixeol" \
       -c "w! $RECTXT" \
       -c "let fn=expand('%:p')" \
       -c "new $RECFN" \
@@ -41,7 +47,7 @@ for swapfile in $VIM_SWAP_DIR/.*sw? $VIM_SWAP_DIR/*.sw?; do
 
   currentfile="$(cat $RECFN)"
 
-  if diff --strip-trailing-cr --brief "$currentfile" "$RECTXT"; then
+  if diff --ignore-blank-lines --brief "$currentfile" "$RECTXT"; then
     echo "- removing redundant swap file $swapfile"
     echo "  for $currentfile"
 
@@ -54,6 +60,11 @@ for swapfile in $VIM_SWAP_DIR/.*sw? $VIM_SWAP_DIR/*.sw?; do
     # Break early if we don't decide to delete the swap file
     rm -i "$swapfile" || exit
   fi
+
 done
+
+if [[ $swap_count -le 0 ]]; then
+  echo "No swap files found"
+fi
 
 # vim: set et fenc= ff=unix sts=2 sw=2 ts=2 :
