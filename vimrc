@@ -300,9 +300,6 @@ if has("autocmd") && !exists("autocommands_loaded") " only run once
         \   setf markdown |
         \ endif
 
-  " Check *.jsx files with JSXhint by default
-  autocmd BufNewFile,BufRead *.jsx let b:syntastic_checkers = ['jsxhint']
-
   " Delete fugitive buffers when you close them
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
@@ -536,6 +533,11 @@ let g:detectindent_preferred_indent = 2
 let g:detectindent_max_lines_to_analyse = 1024
 let g:detectindent_min_indent = 2
 let g:detectindent_max_indent = 8
+
+
+"" JSX
+
+let g:jsx_ext_required = 0
 
 
 
