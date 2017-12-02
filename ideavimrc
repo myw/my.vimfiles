@@ -1,0 +1,81 @@
+" .ideavimrc file
+" Maintainer: Mikhail Wolfson <mywolfson@gmail.com>
+" Last Change:  2017-11-12
+"
+scriptencoding utf-8
+
+" Supported Commands
+" 'clipboard'      'cb'    clipboard options
+" 'digraph'        'dg'    enable the entering of digraphs in Insert mode
+" 'gdefault'       'gd'    the ":substitute" flag 'g' is default on
+" 'history'        'hi'    number of command-lines that are remembered
+" 'hlsearch'       'hls'   highlight matches with last search pattern
+" 'ignorecase'     'ic'    ignore case in search patterns
+" 'iskeyword'      'isk'   defines keywords for commands like 'w', '*', etc.
+" 'incsearch'      'is'    show where search pattern typed so far matches
+" 'matchpairs'     'mps'   pairs of characters that "%" can match
+" 'nrformats'      'nf'    number formats recognized for CTRL-A command
+" 'number'         'nu'    print the line number in front of each line
+" 'scroll'         'scr'   lines to scroll with CTRL-U and CTRL-D
+" 'scrolljump'     'sj'    minimum number of lines to scroll
+" 'scrolloff'      'so'    minimum nr. of lines above and below cursor
+" 'selection'      'sel'   what type of selection to use
+" 'showmode'       'smd'   message on status line to show current mode
+" 'sidescroll'     'ss'    minimum number of columns to scroll horizontal
+" 'sidescrolloff'  'siso'  min. nr. of columns to left and right of cursor
+" 'smartcase'      'scs'   no ignore case when pattern has uppercase
+" 'timeout'        'to'    use timeout for mapped key sequences
+" 'timeoutlen'     'tm'    time that is waited for a mapped key sequence
+" 'undolevels'     'ul'    maximum number of changes that can be undone
+" 'viminfo'        'vi'    information to remember after restart
+" 'visualbell'     'vb'    use visual bell instead of beeping
+" 'wrapscan'       'ws'    searches wrap around the end of the file
+
+
+" More easily accessible leaders
+let g:mapleader = ','
+let g:maplocalleader = ','
+
+
+set viminfo='100,<200 " read/write a .viminfo file, don't store more
+                      " than 200 lines of registers
+
+set history=1000 " keep 1000 lines of command line history
+
+
+set ignorecase               " ignore case in search
+set smartcase                " unless I have varying cases in my search terms
+
+set scrolloff=3              " scroll faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+set visualbell               " visual bell
+
+set gdefault
+set wrapscan
+set hlsearch
+set incsearch
+
+""" Plugins
+set surround
+
+
+"" Common actions
+nnoremap <silent> <Leader>n :silent :nohlsearch<CR> " turn off highlighting
+nnoremap <silent> <Leader>w :set nowrap!<CR>        " word wrapping
+nnoremap <silent> <Leader>s :set nolist!<CR>        " show hidden chars
+
+nnoremap <silent> <Leader>! :!"%:p"<CR>             " execute current file in shell
+
+nnoremap <silent> <Leader>erc :vsp $MYVIMRC<CR>      " .vimrc edits
+nnoremap <silent> <Leader>src :source $MYVIMRC<CR>
+
+" Toggle expand-tab for a region
+vnoremap <silent> <Leader>tt :<C-u>set et! <Bar> '<,'> retab! <Bar> set et!<CR>
+
+"" Functions and macros
+
+nnoremap <silent> <Leader>r :set relativenumber!<CR>
+
+" vim: sw=2 sts=2 ts=2 et
