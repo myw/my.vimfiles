@@ -435,18 +435,29 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = {
     \ 'types': {
-        \ 1: ['.git', 'git -C %s ls-files . --cached --exclude-standard --others'],
+        \ 1: ['.git', 'git -C %s ls-files --cached --modified --others .'],
         \ 2: ['.hg', 'hg --cwd %s locate -I .'],
     \ },
-    \ 'fallback': 'find %s -type f'
+    \ 'fallback': 'find %s -type f -maxdepth 3',
+    \ 'ignore': 1
 \ }
-let g:ctrlp_switch_buffer='Etvh'
+let g:ctrlp_switch_buffer='Et'
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|.*\.tmp/.*' " MacOSX/Linux
 let g:ctrlp_mruf_max = 10
+let g:ctrlp_abbrev = {
+  \ 'gmode': 't',
+  \ 'abbrevs': [
+    \ {
+      \ 'pattern': '^proj \(\w\+\)',
+      \ 'expanded': '@cd ~/Projects/\\1',
+      \ 'mode': 'pfrz',
+    \ },
+  \ ]
+\ }
 
 " Use ag in CtrlP as a fallback for listing files in ctrlp
 if executable('ag')
-  let g:ctrlp_user_command.fallback = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command.fallback = 'ag %s -l --depth=3 --nocolor -g ""'
 endif
 
 "" TagList
@@ -474,7 +485,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 
 "" easytags
 
-let g:easytags_by_filetype = '~/.vim/tags'
+let g:easytags_by_filetype = '~/.vim/tags/'
 let g:easytags_async = 1
 let g:easytags_on_cursorhold = 1
 " XXX keep auto_highlight off: it's too slow and messes with YCM
@@ -600,10 +611,11 @@ endif
 
 " CtrlP
 nnoremap <silent> <Leader>q :CtrlPQuickfix<CR>
+nnoremap <silent> <Leader>g :CtrlPTag<CR>
 nnoremap <silent> <Leader>t :CtrlPBufTagAll<CR>
-nnoremap <silent> <C-f> :CtrlPag<CR>
-vnoremap <silent> <C-f> :CtrlPagVisual<CR>
 
+nnoremap <silent> <C-f>      :CtrlPag<CR>
+vnoremap <silent> <C-f>      :CtrlPagVisual<CR>
 nnoremap          <Leader>ll :CtrlPagLocate<Space>
 nnoremap <silent> <Leader>lp :CtrlPagPrevious<CR>
 
