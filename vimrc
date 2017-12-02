@@ -574,7 +574,7 @@ cnoreabbrev vsba vert sba
 
 "" Fugitive
 
-nnoremap <silent> <Leader>gc :Gcommit<CR>
+nnoremap <silent> <Leader>gc :Gcommit --verbose<CR>
 nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gd :Gvdiff<CR>
 nnoremap <silent> <Leader>gw :Gwrite<CR>
