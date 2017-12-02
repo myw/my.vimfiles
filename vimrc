@@ -81,6 +81,8 @@ set shortmess=at             " shorten messages
 set visualbell               " visual bell
 set report=0                 " aggressive reporting
 
+set gdefault                 " default to global substitution in a line
+set wrapscan                 " searches wrap around the end of a file
 
 "" Custom special charascters
 set listchars=tab:▶—,trail:␣,eol:↵,extends:»,precedes:« " hidden characters
