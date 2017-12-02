@@ -600,6 +600,7 @@ nmap <Leader>+ <Plug>AirlineSelectNextTab
 
 nmap <Leader>` <Plug>LastTabLastUsedTab
 nmap <Leader>~ <Plug>LastTabLastUsedBuffer
+nmap <Leader>W :tabclose<CR>
 
 "" Call plugins
 
