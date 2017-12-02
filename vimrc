@@ -103,7 +103,6 @@ set bdir=~/.vim/bak,~/.tmp,/tmp " organize backups in one place
 set directory=~/.vim/swap,.,~/.tmp,/var/tmp,/tmp
 
 
-
 """ Plugins
 
 
@@ -243,8 +242,8 @@ if &t_Co > 2 || has("gui_running")
   set incsearch
 
   set cursorline
-  if v:version >= 703
-    set colorcolumn=80
+  if exists('+colorcolumn')
+    set colorcolumn=+1
   endif
 endif
 
