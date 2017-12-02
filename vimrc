@@ -372,6 +372,9 @@ set grepprg=grep\ -nH\ $* " always show the filename
 
 "" Man plugin
 
+" We set MANPAGER in the shell externally Vim so we have to give it a trivial value
+" inside Vim
+let $MANPAGER='cat'
 set keywordprg=:Man
 let g:ft_man_open_mode = 'vert'
 let g:ft_man_folding_enable = 1
