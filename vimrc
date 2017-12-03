@@ -348,7 +348,7 @@ let g:javascript_plugin_flow = 1
 if !exists("g:vimrc_loaded") " only run once
   set background=light
   colorscheme solarized
-  call togglebg#map("<Leader>bg")
+  nmap <Leader>bg <Plug>ToggleBackground
 end
 
 
