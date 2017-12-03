@@ -154,6 +154,7 @@ Plug 'noc7c9/vim-iced-coffee-script'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'roryokane/detectindent'
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -270,9 +271,8 @@ endif
 "" MacVim GUI
 
 if has("gui_running") && has("gui_macvim")
-  " set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h12
-  " Special font for Powerline/Airline symbols
-  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+  " Special font for Vim DevIcon symbols
+  set guifont=Knack\ Regular\ Nerd\ Font\ Complete:h12
 
   set transparency=3 " transparent, blurry bg
   set blurradius=15
@@ -387,10 +387,10 @@ let g:syntastic_enable_signs=1             " use the sidebar for signs
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=2
 
-let g:syntastic_error_symbol = ''        " better :sign interface symbols
-let g:syntastic_warning_symbol = ''
-let g:syntastic_style_error_symbol = 's◆'
-let g:syntastic_style_warning_symbol = 's◇'
+let g:syntastic_error_symbol = ' '        " better :sign interface symbols
+let g:syntastic_warning_symbol = ' '
+let g:syntastic_style_error_symbol = ' '
+let g:syntastic_style_warning_symbol = ' '
 
 let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_polymerhtml_checkers = ['gulplint']
@@ -419,12 +419,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#show_close_button = 1
-let g:airline#extensions#tabline#close_symbol = '✖'
+let g:airline#extensions#tabline#close_symbol = ''
 
 let g:airline#extensions#eclim#enabled = 0
 
 let g:airline#extensions#obsession#enabled = 1
-let g:airline#extensions#obsession#indicator_text = '⬥'
+let g:airline#extensions#obsession#indicator_text = ''
 
 
 "" CtrlP
@@ -537,10 +537,15 @@ let g:rooter_use_lcd = 1
 
 "" GitGutter
 
-let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_added = ''
 let g:gitgutter_sign_modified = '▲'
 let g:gitgutter_sign_removed = '▂'
-let g:gitgutter_sign_modified_removed = '▲̳'
+let g:gitgutter_sign_modified_removed = ''
+
+highlight link GitGutterAdd DiffAdd
+highlight link GitGutterDelete DiffDelete
+highlight link GitGutterChange DiffChange
+highlight link GitGutterChangeDelete DiffDelete
 
 
 "" DetectIndent
