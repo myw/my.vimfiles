@@ -71,7 +71,7 @@ set completeopt=menu,preview " set richer UI options for the completion window
 set ignorecase               " ignore case in search
 set smartcase                " unless I have varying cases in my search terms
 
-set title                    " in terminals, set the title of the terminal
+set notitle                  " in terminals, do not set the title of the terminal
 
 set scrolloff=3              " scroll faster
 nnoremap <C-e> 3<C-e>
@@ -307,7 +307,6 @@ if has("autocmd") && !exists("autocommands_loaded") " only run once
 
   " Run DetectIndent on file load
   autocmd FileType,BufReadPost * DetectIndent
-
 endif
 
 
