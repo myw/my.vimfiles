@@ -1,7 +1,7 @@
 if exists("did_custom_latex")
-        finish
+  finish
 else
-        let did_custom_latex=1
+  let g:did_custom_latex=1
 endif
 
 " Vim-LaTeX stuff
