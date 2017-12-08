@@ -398,10 +398,10 @@ let g:syntastic_python_checkers = ['flake8']
 "" CSV
 
 " Make the columns look good in solarized
-hi CSVColumnEven       term=NONE cterm=NONE ctermfg=12 ctermbg=NONE gui=NONE guibg=NONE
-hi CSVColumnOdd        term=NONE cterm=NONE ctermfg=12 ctermbg=7    gui=NONE
-hi CSVColumnHeaderEven term=bold cterm=bold ctermfg=12 ctermbg=NONE gui=bold guibg=NONE
-hi CSVColumnHeaderOdd  term=bold cterm=bold ctermfg=12 ctermbg=7    gui=bold
+highlight CSVColumnEven       term=NONE cterm=NONE ctermfg=12 ctermbg=NONE gui=NONE guibg=NONE
+highlight CSVColumnOdd        term=NONE cterm=NONE ctermfg=12 ctermbg=7    gui=NONE
+highlight CSVColumnHeaderEven term=bold cterm=bold ctermfg=12 ctermbg=NONE gui=bold guibg=NONE
+highlight CSVColumnHeaderOdd  term=bold cterm=bold ctermfg=12 ctermbg=7    gui=bold
 
 
 "" Slime for tmux
