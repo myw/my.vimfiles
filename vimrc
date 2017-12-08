@@ -544,7 +544,7 @@ let g:gitgutter_sign_modified_removed = ''
 highlight link GitGutterAdd DiffAdd
 highlight link GitGutterDelete DiffDelete
 highlight link GitGutterChange DiffChange
-highlight link GitGutterChangeDelete DiffDelete
+highlight GitGutterChangeDelete term=bold ctermfg=9 ctermbg=11 gui=bold guifg=#cb5b16 guibg=#eee8d5
 
 
 "" DetectIndent
