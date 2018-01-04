@@ -604,6 +604,7 @@ nmap <Leader>+ <Plug>AirlineSelectNextTab
 "" LastTab
 
 nmap <Leader>` <Plug>LastTabLastUsedTab
+nmap g^        <Plug>LastTabLastUsedTab
 nmap <Leader>~ <Plug>LastTabLastUsedBuffer
 nmap <Leader>W :tabclose<CR>
 
