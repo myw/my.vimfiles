@@ -131,7 +131,6 @@ Plug 'hdima/python-syntax'
 Plug 'honza/vim-snippets'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'jmcantrell/vim-virtualenv'
 Plug 'justincampbell/vim-eighties'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
@@ -503,9 +502,10 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 
 "" UltiSnips
 
-let g:UltiSnipsExpandTrigger="<C-L>"
-let g:UltiSnipsJumpForwardTrigger="<C-J>"
-let g:UltiSnipsJumpBackwardTrigger="<C-K>"
+let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsExpandTrigger = "<C-L>"
+let g:UltiSnipsJumpForwardTrigger = "<C-J>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
 
 
 "" Markdown
