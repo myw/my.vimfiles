@@ -383,13 +383,14 @@ let g:ft_man_folding_enable = 1
 "" Syntastic
 
 let g:syntastic_enable_signs=1             " use the sidebar for signs
+let g:syntastic_enable_baloons=1
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=2
 
-let g:syntastic_error_symbol = ' '        " better :sign interface symbols
-let g:syntastic_warning_symbol = ' '
-let g:syntastic_style_error_symbol = ' '
-let g:syntastic_style_warning_symbol = ' '
+let g:syntastic_error_symbol = "\u00A0"        " better :sign interface symbols
+let g:syntastic_warning_symbol = "\u00A0"
+let g:syntastic_style_error_symbol = "\u00A0"
+let g:syntastic_style_warning_symbol = "\u00A0"
 
 let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_polymerhtml_checkers = ['gulplint']
