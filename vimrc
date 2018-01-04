@@ -448,8 +448,8 @@ let g:ctrlp_abbrev = {
   \ 'gmode': 't',
   \ 'abbrevs': [
     \ {
-      \ 'pattern': '^proj \(\w\+\)',
-      \ 'expanded': '@cd ~/Projects/\\1',
+      \ 'pattern': '^proj ',
+      \ 'expanded': '@cd ~/Projects/',
       \ 'mode': 'pfrz',
     \ },
   \ ]
