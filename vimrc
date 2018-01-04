@@ -110,7 +110,9 @@ set directory=~/.vim/swap,.,~/.tmp,/var/tmp,/tmp
 filetype off
 filetype plugin indent on
 runtime ftplugin/man.vim " man plugin must be run on its own to get :Man
+runtime macros/matchit.vim " matchit plugin must be run on its own
 syntax enable
+
 
 "" Load plugins (run by vim-plug)
 call plug#begin('~/.vim/plugged')
@@ -120,7 +122,6 @@ Plug 'airblade/vim-rooter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'dearrrfish/vim-applescript'
-Plug 'django.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
 Plug 'ervandew/ag'
@@ -139,11 +140,8 @@ Plug 'lazywei/vim-matlab'
 Plug 'lokikl/vim-ctrlp-ag'
 Plug 'machakann/vim-swap'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'matchit.zip'
 Plug 'mhinz/vim-startify'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'mlint.vim'
-Plug 'Modeliner'
 Plug 'monokrome/vim-lazy-obsession'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mxw/vim-jsx'
@@ -160,9 +158,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Shougo/vinarise.vim'
 Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
-Plug 'SmartCase'
 Plug 'syngan/vim-vimlint'
-Plug 'taglist.vim'
 Plug 'thinca/vim-localrc'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -184,6 +180,8 @@ Plug 'vernonrj/vim-lasttab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-latex/vim-latex'
+Plug 'vim-scripts/Modeliner'
+Plug 'vim-scripts/taglist.vim'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 Plug 'xuyuanp/nerdtree-git-plugin'
