@@ -410,18 +410,76 @@ let g:slime_paste_file = tempname()
 
 "" Airline
 
+let g:airline_mode_map = {
+\   '__': '-',
+\   'n':  'N',
+\   'i':  'I',
+\   'R':  'R',
+\   'c':  'C',
+\   'v':  'V',
+\   'V':  'VL',
+\   '': 'VB',
+\   's':  'S',
+\   'S':  'S',
+\   '': 'S',
+\ }
+let g:airline_highlighting_cache = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 let g:airline_powerline_fonts = 1
+let g:airline_symbols.branch = ''
+let g:airline_symbols.crypt = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.notexists = ''
+let g:airline_symbols.paste = ''
+let g:airline_symbols.spell = ''
+let g:airline_symbols.whitespace = '⬚'
+
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#error_symbol = "\u00A0"        " better :sign interface symbols
+let g:airline#extensions#ale#warning_symbol = "\u00A0"
+let g:airline#extensions#ale#open_lnum_symbol = '(L'
+let g:airline#extensions#ale#close_lnum_symbol = ')'
+
+let g:airline#extensions#branch#sha1_len = 5
+
+let g:airline#extensions#csv#enabled = 1
+
+let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+
+let g:airline#extensions#eclim#enabled = 0
+
+let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#hunks#hunk_symbols = ['', '▲', '']
+
+let g:airline#extensions#obsession#enabled = 1
+let g:airline#extensions#obsession#indicator_text = ''
+
+let g:airline#extensions#quickfix#quickfix_text = 'Qfix'
+let g:airline#extensions#quickfix#location_text = 'Loc'
+
+let g:airline#extensions#syntastic#error_symbol = ' '
+let g:airline#extensions#syntastic#warning_symbol = ' '
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#show_close_button = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#show_splits = 1
 let g:airline#extensions#tabline#close_symbol = ''
 
-let g:airline#extensions#eclim#enabled = 0
+let g:airline#extensions#whitespace#enabled = 0
 
-let g:airline#extensions#obsession#enabled = 1
-let g:airline#extensions#obsession#indicator_text = ''
+let g:airline#extensions#ycm#error_symbol = ' '
+let g:airline#extensions#ycm#warning_symbol = ' '
 
 
 "" CtrlP
