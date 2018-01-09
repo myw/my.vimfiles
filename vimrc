@@ -113,6 +113,18 @@ runtime ftplugin/man.vim " man plugin must be run on its own to get :Man
 runtime macros/matchit.vim " matchit plugin must be run on its own
 syntax enable
 
+"" Plugin helpers
+
+" Rebuild YCM on installation and update
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
+    !./install.py
+  endif
+endfunction
 
 "" Load plugins (run by vim-plug)
 call plug#begin('~/.vim/plugged')
@@ -175,7 +187,7 @@ Plug 'tpope/vim-rhubarb'    " GitHub support for vim-fugitive
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'      " Tmux interaction
 Plug 'tpope/vim-unimpaired'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'vernonrj/vim-lasttab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
