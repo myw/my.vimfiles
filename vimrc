@@ -167,7 +167,7 @@ Plug 'roryokane/detectindent'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'Shougo/vinarise.vim'
 Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
@@ -195,6 +195,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-latex/vim-latex'
 Plug 'vim-scripts/Modeliner'
 Plug 'vim-scripts/taglist.vim'
+Plug 'w0rp/ale'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 Plug 'xuyuanp/nerdtree-git-plugin'
@@ -389,8 +390,16 @@ set keywordprg=:Man
 let g:ft_man_open_mode = 'vert'
 let g:ft_man_folding_enable = 1
 
+"" ALE
+let g:ale_sign_error = "\u00A0"        " better :sign interface symbols
+let g:ale_sign_warning = "\u00A0"
 
-"" Syntastic
+let g:ale_linters = {
+\   'python': ['flake8'],
+\   'javascript': ['eslint'],
+\ }
+
+"" Syntastic (disabled)
 
 let g:syntastic_enable_signs=1             " use the sidebar for signs
 let g:syntastic_enable_baloons=1
