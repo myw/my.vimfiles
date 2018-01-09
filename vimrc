@@ -293,11 +293,11 @@ if has("autocmd") && !exists("autocommands_loaded") " only run once
 
   " Treat notes in my notes directory as markdown, even though they're .txt
   autocmd BufNewFile,BufRead *Dropbox/Notes/*.txt
-        \ if &ft =~# '^\%(conf\|modula2\)$' |
-        \   set ft=markdown |
-        \ else |
-        \   setf markdown |
-        \ endif
+  \ if &ft =~# '^\%(conf\|modula2\)$' |
+  \   set ft=markdown |
+  \ else |
+  \   setf markdown |
+  \ endif
 
   " Delete fugitive buffers when you close them
   autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -432,25 +432,25 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = {
-    \ 'types': {
-        \ 1: ['.git', 'git -C %s ls-files --cached --modified --others .'],
-        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-    \ },
-    \ 'fallback': 'find %s -type f -maxdepth 3',
-    \ 'ignore': 1
+\   'types': {
+\      1: ['.git', 'git -C %s ls-files --cached --modified --others .'],
+\      2: ['.hg', 'hg --cwd %s locate -I .'],
+\   },
+\   'fallback': 'find %s -type f -maxdepth 3',
+\   'ignore': 1
 \ }
 let g:ctrlp_switch_buffer='Et'
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|.*\.tmp/.*' " MacOSX/Linux
 let g:ctrlp_mruf_max = 10
 let g:ctrlp_abbrev = {
-  \ 'gmode': 't',
-  \ 'abbrevs': [
-    \ {
-      \ 'pattern': '^proj ',
-      \ 'expanded': '@cd ~/Projects/',
-      \ 'mode': 'pfrz',
-    \ },
-  \ ]
+\   'gmode': 't',
+\   'abbrevs': [
+\     {
+\       'pattern': '^proj ',
+\       'expanded': '@cd ~/Projects/',
+\       'mode': 'pfrz',
+\     },
+\   ]
 \ }
 
 " Use ag in CtrlP as a fallback for listing files in ctrlp
@@ -473,7 +473,7 @@ let g:NERDSpaceDelims = 1 " add extra space around delimiters
 let g:NERDTrimTrailingWhitespace = 1 " add extra space around delimiters
 let g:NERDCompactSexyComs = 1 " compact sexy comments
 let g:NERDCustomDelimiters = {
-    \ 'html': { 'left': '<!--',  'right': '-->', 'leftAlt': '/*', 'rightAlt': '*/' },
+\   'html': { 'left': '<!--',  'right': '-->', 'leftAlt': '/*', 'rightAlt': '*/' },
 \ }
 
 "" NERDTree
