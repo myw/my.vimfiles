@@ -93,7 +93,7 @@ set showbreak=»                                         " line wraps
 
 set encoding=utf-8
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-  set fileencodings=utf-8,latin1
+  set fileencodings=ucs-bom,utf-8,default,latin1
 endif
 
 
@@ -258,6 +258,7 @@ if &t_Co > 2 || has("gui_running")
   if exists('+colorcolumn')
     set colorcolumn=+1
   endif
+
 endif
 
 
@@ -502,7 +503,6 @@ let g:airline#extensions#whitespace#enabled = 0
 
 let g:airline#extensions#ycm#error_symbol = ' '
 let g:airline#extensions#ycm#warning_symbol = ' '
-
 
 "" CtrlP
 
@@ -773,3 +773,4 @@ nnoremap <silent> <Leader>c :call ToggleConceal()<CR>
 
 let g:vimrc_loaded = 1
 " vim: sw=2 sts=2 ts=2 et
+"
