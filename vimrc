@@ -167,7 +167,6 @@ Plug 'roryokane/detectindent'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-" Plug 'scrooloose/syntastic'
 Plug 'Shougo/vinarise.vim'
 Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
@@ -400,22 +399,6 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \ }
 
-"" Syntastic (disabled)
-
-let g:syntastic_enable_signs=1             " use the sidebar for signs
-let g:syntastic_enable_baloons=1
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=2
-
-let g:syntastic_error_symbol = "\u00A0"        " better :sign interface symbols
-let g:syntastic_warning_symbol = "\u00A0"
-let g:syntastic_style_error_symbol = "\u00A0"
-let g:syntastic_style_warning_symbol = "\u00A0"
-
-let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_polymerhtml_checkers = ['gulplint']
-let g:syntastic_python_checkers = ['flake8']
-
 "" CSV
 
 " Make the columns look good in solarized
@@ -485,9 +468,6 @@ let g:airline#extensions#obsession#indicator_text = ''
 
 let g:airline#extensions#quickfix#quickfix_text = 'Qfix'
 let g:airline#extensions#quickfix#location_text = 'Loc'
-
-let g:airline#extensions#syntastic#error_symbol = ' '
-let g:airline#extensions#syntastic#warning_symbol = ' '
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
