@@ -53,11 +53,12 @@ set formatoptions-=t
 set nojoinspaces " do not insert extra spaces after the ends of sentences
 set laststatus=2
 
+"" Misc global options
 set viminfo='100,<200 " read/write a .viminfo file, don't store more
                       " than 200 lines of registers
 
-set history=1000 " keep 1000 lines of command line history
-set updatetime=100 " more frequent UI updates, shorter delays
+set history=1000      " keep 1000 lines of command line history
+set updatetime=100    " more frequent UI updates, shorter delays
 
 
 "" Convenience features to enable, courtesy of Steven Bach
@@ -647,17 +648,9 @@ cnoreabbrev vsun vert sun
 cnoreabbrev vsba vert sba
 
 
-"" Fugitive
+"" Plugins
 
-nnoremap <silent> <Leader>gc :Gcommit --verbose<CR>
-nnoremap <silent> <Leader>gs :Gstatus<CR>
-nnoremap <silent> <Leader>gd :Gvdiff<CR>
-nnoremap <silent> <Leader>gw :Gwrite<CR>
-nnoremap <silent> <Leader>gr :Gread<CR>
-
-
-"" Airline
-
+" Airline
 nmap <Leader>1 <Plug>AirlineSelectTab1
 nmap <Leader>2 <Plug>AirlineSelectTab2
 nmap <Leader>3 <Plug>AirlineSelectTab3
@@ -670,35 +663,43 @@ nmap <Leader>9 <Plug>AirlineSelectTab9
 nmap <Leader>- <Plug>AirlineSelectPrevTab
 nmap <Leader>+ <Plug>AirlineSelectNextTab
 
-
-"" LastTab
-
-nmap <Leader>` <Plug>LastTabLastUsedTab
-nmap g^        <Plug>LastTabLastUsedTab
-nmap <Leader>~ <Plug>LastTabLastUsedBuffer
-nmap <Leader>W :tabclose<CR>
-
-"" Call plugins
-
-nnoremap <silent> <Leader>nt :NERDTreeTabsToggle<CR>
-nnoremap <silent> <Leader>tl :TlistToggle<CR>
-if v:version >= 703
-  nnoremap <silent> <Leader>gu :GundoToggle<CR>
-endif
-
 " CtrlP
 nnoremap <silent> <Leader>q :CtrlPQuickfix<CR>
 nnoremap <silent> <Leader>g :CtrlPTag<CR>
-nnoremap <silent> <Leader>t :CtrlPBufTagAll<CR>
+nnoremap <silent> <Leader>pt :CtrlPBufTagAll<CR>
 
 nnoremap <silent> <C-f>      :CtrlPag<CR>
 vnoremap <silent> <C-f>      :CtrlPagVisual<CR>
 nnoremap          <Leader>ll :CtrlPagLocate<Space>
 nnoremap <silent> <Leader>lp :CtrlPagPrevious<CR>
 
+" Fugitive
+nnoremap <silent> <Leader>gc :Gcommit --verbose<CR>
+nnoremap <silent> <Leader>gs :Gstatus<CR>
+nnoremap <silent> <Leader>gd :Gvdiff<CR>
+nnoremap <silent> <Leader>gw :Gwrite<CR>
+nnoremap <silent> <Leader>gr :Gread<CR>
+
+" Gundo
+if v:version >= 703
+  nnoremap <silent> <Leader>gu :GundoToggle<CR>
+endif
+
+" LastTab
+nmap <Leader>` <Plug>LastTabLastUsedTab
+nmap g^        <Plug>LastTabLastUsedTab
+nmap <Leader>~ <Plug>LastTabLastUsedBuffer
+nmap <Leader>W :tabclose<CR>
+
+" NERDTree
+nnoremap <silent> <Leader>nt :NERDTreeTabsToggle<CR>
+
 " Tabularize
 vnoremap <silent> <Leader>tp :Tabularize ellipses<CR>
 vnoremap <silent> <Leader>tc :Tabularize comma<CR>
+
+" TagList
+nnoremap <silent> <Leader>tl :TlistToggle<CR>
 
 " YAPF
 map <C-Y> :call yapf#YAPF()<cr>
@@ -706,6 +707,7 @@ imap <C-Y> <c-o>:call yapf#YAPF()<cr>
 
 
 "" Common actions
+
 nnoremap <silent> <Leader>n :silent :nohlsearch<CR> " turn off highlighting
 nnoremap <silent> <Leader>w :set nowrap!<CR>        " word wrapping
 nnoremap <silent> <Leader>s :set nolist!<CR>        " show hidden chars
@@ -764,8 +766,7 @@ endfunction
 nnoremap <silent> <Leader>c :call ToggleConceal()<CR>
 
 
-"" Set flag allowing content to only run once
+""" Set flag allowing content to only run once
 
 let g:vimrc_loaded = 1
 " vim: sw=2 sts=2 ts=2 et
-"
