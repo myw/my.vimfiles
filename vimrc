@@ -57,6 +57,7 @@ set viminfo='100,<200 " read/write a .viminfo file, don't store more
                       " than 200 lines of registers
 
 set history=1000 " keep 1000 lines of command line history
+set updatetime=100 " more frequent UI updates, shorter delays
 
 
 "" Convenience features to enable, courtesy of Steven Bach
@@ -603,6 +604,7 @@ let g:rooter_use_lcd = 1
 
 "" GitGutter
 
+let g:gitgutter_terminal_reports_focus = 0
 let g:gitgutter_sign_added = ''
 let g:gitgutter_sign_modified = '▲'
 let g:gitgutter_sign_removed = '▂'
