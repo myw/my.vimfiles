@@ -135,6 +135,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'chrisbra/NrrwRgn'
 Plug 'dearrrfish/vim-applescript'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
 Plug 'ervandew/ag'
@@ -406,6 +407,13 @@ highlight CSVColumnEven       term=NONE cterm=NONE ctermfg=12 ctermbg=NONE gui=N
 highlight CSVColumnOdd        term=NONE cterm=NONE ctermfg=12 ctermbg=7    gui=NONE
 highlight CSVColumnHeaderEven term=bold cterm=bold ctermfg=12 ctermbg=NONE gui=bold guibg=NONE
 highlight CSVColumnHeaderOdd  term=bold cterm=bold ctermfg=12 ctermbg=7    gui=bold
+
+
+"" vim-table-mode
+
+" ReST-style tables by default
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='
 
 
 "" Slime for tmux
