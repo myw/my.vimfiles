@@ -143,6 +143,7 @@ Plug 'ervandew/ag'
 Plug 'fs111/pydoc.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'godlygeek/tabular'
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'hdima/python-syntax'
 Plug 'honza/vim-snippets'
 Plug 'ivalkeen/vim-ctrlp-tjump'
@@ -698,6 +699,10 @@ nnoremap <silent> <Leader>lp :CtrlPagPrevious<CR>
 " Tabularize
 vnoremap <silent> <Leader>tp :Tabularize ellipses<CR>
 vnoremap <silent> <Leader>tc :Tabularize comma<CR>
+
+" YAPF
+map <C-Y> :call yapf#YAPF()<cr>
+imap <C-Y> <c-o>:call yapf#YAPF()<cr>
 
 
 "" Common actions
