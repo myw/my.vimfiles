@@ -124,7 +124,7 @@ function! BuildYCM(info)
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-    !./install.py
+    !./install.py --clang-completer --ts-completer
   endif
 endfunction
 
@@ -136,6 +136,7 @@ Plug 'airblade/vim-rooter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'chrisbra/NrrwRgn'
+Plug 'dag/vim-fish'
 Plug 'dearrrfish/vim-applescript'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'editorconfig/editorconfig-vim'
@@ -144,7 +145,7 @@ Plug 'ervandew/ag'
 Plug 'fs111/pydoc.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'godlygeek/tabular'
-Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+Plug 'google/yapf', { 'branch': 'main', 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'hdima/python-syntax'
 Plug 'honza/vim-snippets'
 Plug 'ivalkeen/vim-ctrlp-tjump'
@@ -286,7 +287,7 @@ endif
 
 if has("gui_running") && has("gui_macvim")
   " Special font for Vim DevIcon symbols
-  set guifont=Knack\ Regular\ Nerd\ Font\ Complete:h12
+  set guifont=HackNerdFontCompleteM-Regular:h11
 
   set transparency=3 " transparent, blurry bg
   set blurradius=15
@@ -600,7 +601,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 "" Rooter
 
-let g:rooter_use_lcd = 1
+let g:rooter_cd_cmd = "lcd"
 
 
 "" GitGutter
