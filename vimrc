@@ -1,6 +1,6 @@
 " .vimrc file
 " Maintainer: Mikhail Wolfson <mywolfson@gmail.com>
-" Last Change:  2015-04-09
+" Last Change:  2021-02-18
 
 scriptencoding utf-8
 
@@ -207,7 +207,6 @@ Plug 'zaiste/tmux.vim'
 
 "" Personal plugins
 Plug '~/.vim/plugged_custom/personal'
-Plug '~/.vim/plugged_custom/ginkgo'
 Plug '~/.vim/plugged_custom/vim-polymer'
 
 call plug#end()
