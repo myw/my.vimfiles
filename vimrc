@@ -395,14 +395,47 @@ let g:ft_man_open_mode = 'vert'
 let g:ft_man_folding_enable = 1
 
 "" ALE
-let g:ale_sign_error = "\u00A0"        " better :sign interface symbols
-let g:ale_sign_warning = "\u00A0"
-
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'javascript': ['eslint'],
 \   'fish': ['fish_debug'],
 \ }
+
+let g:ale_fixers = {
+\   'python': [ 'black' ],
+\ }
+" let g:ale_fix_on_save = 1
+
+let g:ale_completion_symbols = {
+\ 'text': '',
+\ 'method': '',
+\ 'function': '',
+\ 'constructor': '',
+\ 'field': '',
+\ 'variable': '',
+\ 'class': '',
+\ 'interface': '',
+\ 'module': '',
+\ 'property': '',
+\ 'unit': 'unit',
+\ 'value': 'val',
+\ 'enum': '',
+\ 'keyword': 'keyword',
+\ 'snippet': '',
+\ 'color': 'color',
+\ 'file': '',
+\ 'reference': 'ref',
+\ 'folder': '',
+\ 'enum member': '',
+\ 'constant': '',
+\ 'struct': '',
+\ 'event': 'event',
+\ 'operator': '',
+\ 'type_parameter': 'type param',
+\ '<default>': 'v'
+\ }
+let g:ale_sign_error = "\u00A0"        " better :sign interface symbols
+let g:ale_sign_warning = "\u00A0"
 
 "" CSV
 
