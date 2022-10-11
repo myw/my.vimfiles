@@ -401,6 +401,7 @@ let g:ale_sign_warning = "\u00A0"
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'javascript': ['eslint'],
+\   'fish': ['fish_debug'],
 \ }
 
 "" CSV
