@@ -87,8 +87,8 @@ set gdefault                 " default to global substitution in a line
 set wrapscan                 " searches wrap around the end of a file
 
 "" Custom special charascters
-set listchars=tab:▶—,trail:␣,eol:↵,extends:»,precedes:« " hidden characters
-set showbreak=»                                         " line wraps
+set listchars=space:∙,nbsp:␣,tab:▶—,trail:␣,eol:↵,extends:»,precedes:« " hidden characters
+set showbreak=»                                                        " line wraps
 
 
 "" Encoding settings
@@ -278,9 +278,9 @@ endif
 
 "" Screen and tmux
 
-if &term=="screen"
-  let &term="screen-256color" " use all available colors
-  set ttymouse=xterm2         " full mouse capability
+if &term =~ 'screen\|tmux'
+  set term=screen-256color  " use all available colors, but use screen-256; tmux-256 breaks CtrlP
+  set ttymouse=xterm2       " full mouse capability
 endif
 
 
@@ -288,7 +288,9 @@ endif
 
 if has("gui_running") && has("gui_macvim")
   " Special font for Vim DevIcon symbols
-  set guifont=HackNerdFontCompleteM-Regular:h11
+  set guifont=FiraCodeNerdFontComplete-Retina:h11
+  set linespace=-1
+
 
   set transparency=3 " transparent, blurry bg
   set blurradius=15
