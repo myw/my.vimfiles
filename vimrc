@@ -777,6 +777,12 @@ if v:version >= 703
   imap <Leader>v  <C-o>:set paste<CR><C-r>*<C-o>:set nopaste<CR>
 endif
 
+" System-clipboard
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
+
 
 "" Functions and macros
 
