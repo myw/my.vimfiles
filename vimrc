@@ -94,7 +94,7 @@ set showbreak=»                                                        " line w
 "" Encoding settings
 
 set encoding=utf-8
-if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+if v:lang =~? "utf-?8$"
   set fileencodings=ucs-bom,utf-8,default,latin1
 endif
 
@@ -111,7 +111,7 @@ set directory=~/.vim/swap,.,~/.tmp,/var/tmp,/tmp
 "" Core filetype plugins
 filetype off
 filetype plugin indent on
-runtime ftplugin/man.vim " man plugin must be run on its own to get :Man
+runtime ftplugin/man.vim   " man plugin must be run on its own to get :Man
 runtime macros/matchit.vim " matchit plugin must be run on its own
 syntax enable
 
@@ -223,25 +223,21 @@ call plug#end()
 
 "" Only once
 
-if !exists("g:vimrc_loaded") " only run once
+if !exists('g:vimrc_loaded') " only run once
 
   "" GUI output
-
-  if has("gui_running")
+  if has('gui_running')
     set columns=200      " set default window size
     set lines=80
     set winaltkeys=no    " kill windows altkeys in for TeX Macros
     set guioptions-=T    " autohide toolbar
     set antialias        " smooth fonts by default
-  endif
 
-
-  "" Mouse functionality in terminal
-
-  if !has("gui_running")
+  "" Terminal output
+  else
     set mouse=a          " most functional mouse mode when in a terminal
   endif
-end
+endif
 
 
 "" Run every time
@@ -249,7 +245,7 @@ end
 
 "" Persistent undo
 
-if has("persistent_undo")
+if has('persistent_undo')
   set undofile
   set undodir=~/.vim/undo
 endif
@@ -257,7 +253,7 @@ endif
 
 "" Colored output
 
-if &t_Co > 2 || has("gui_running")
+if &t_Co > 2 || has('gui_running')
   syntax on
   set hlsearch
   set incsearch
@@ -272,7 +268,7 @@ endif
 
 "" XTerm-compatible output
 
-if &term=="xterm"
+if &term == 'xterm'
   set t_Co=8
   set t_Sb=[4%dm
   set t_Sf=[3%dm
@@ -290,7 +286,7 @@ endif
 
 "" MacVim GUI
 
-if has("gui_running") && has("gui_macvim")
+if has('gui_running') && has('gui_macvim')
   " Special font for Vim DevIcon symbols
   set guifont=FiraCodeNerdFontComplete-Retina:h11
   set linespace=-1
@@ -307,12 +303,12 @@ endif
 
 """ Automatic Commands
 
-if has("autocmd") && !exists("autocommands_loaded") " only run once
+if has('autocmd') && !exists('autocommands_loaded') " only run once
   let g:autocommands_loaded = 1
 
   " When editing a file, always jump to the last cursor position
   autocmd BufReadPost *
-  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \ if line("'\"") > 0 && line ("'\"") <= line('$') |
   \   exe "normal g'\"" |
   \ endif
 
@@ -367,11 +363,11 @@ let g:javascript_plugin_flow = 1
 
 " Solarized colorscheme
 
-if !exists("g:vimrc_loaded") " only run once
+if !exists('g:vimrc_loaded') " only run once
   set background=light
   colorscheme solarized
-  nmap <Leader>bg <Plug>ToggleBackground
-end
+	call togglebg#map('<Leader>bg')
+endif
 
 
 "" Ag
@@ -381,7 +377,7 @@ let g:AgSmartCase=1
 " Use ag as greppgrg as well
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
-end
+endif
 
 
 
@@ -396,7 +392,7 @@ set grepprg=grep\ -nH\ $* " always show the filename
 
 " We set MANPAGER in the shell externally Vim so we have to give it a trivial value
 " inside Vim
-let $MANPAGER='cat'
+let $MANPAGER = 'cat'
 set keywordprg=:Man
 let g:ft_man_open_mode = 'vert'
 let g:ft_man_folding_enable = 1
@@ -589,9 +585,9 @@ let g:Tlist_WinWidth = 35
 
 "" NERDCommenter
 
-let g:NERDSpaceDelims = 1 " add extra space around delimiters
+let g:NERDSpaceDelims = 1            " add extra space around delimiters
 let g:NERDTrimTrailingWhitespace = 1 " add extra space around delimiters
-let g:NERDCompactSexyComs = 1 " compact sexy comments
+let g:NERDCompactSexyComs = 1        " compact sexy comments
 let g:NERDCustomDelimiters = {
 \   'html': { 'left': '<!--',  'right': '-->', 'leftAlt': '/*', 'rightAlt': '*/' },
 \ }
@@ -621,9 +617,9 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 "" UltiSnips
 
 let g:UltiSnipsUsePythonVersion = 2
-let g:UltiSnipsExpandTrigger = "<C-L>"
-let g:UltiSnipsJumpForwardTrigger = "<C-J>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
+let g:UltiSnipsExpandTrigger = '<C-L>'
+let g:UltiSnipsJumpForwardTrigger = '<C-J>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
 
 "" Markdown
@@ -650,7 +646,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 "" Rooter
 
-let g:rooter_cd_cmd = "lcd"
+let g:rooter_cd_cmd = 'lcd'
 
 
 "" GitGutter
