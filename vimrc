@@ -193,7 +193,7 @@ Plug 'tpope/vim-rhubarb'    " GitHub support for vim-fugitive
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'      " Tmux interaction
 Plug 'tpope/vim-unimpaired'
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'vernonrj/vim-lasttab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
