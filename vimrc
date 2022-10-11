@@ -462,24 +462,32 @@ let g:slime_paste_file = tempname()
 "" Airline
 
 let g:airline_mode_map = {
-\   '__': '-',
-\   'n':  'N',
-\   'i':  'I',
-\   'R':  'R',
-\   'c':  'C',
-\   'v':  'V',
-\   'V':  'VL',
-\   '': 'VB',
-\   's':  'S',
-\   'S':  'S',
-\   '': 'S',
+\   '__': '- ',
+\   'n':  'גּ ',
+\   'ni': 'גּ ',
+\   'no': 'גּ ',
+\   'i':  ' ',
+\   'ic': ' ',
+\   'ix': ' ',
+\   'multi': ' ',
+\   'R':  ' ',
+\   'Rv': '⥣',
+\   'c':  ' ',
+\   'v':  ' ',
+\   'V':  '',
+\   '': '⥣',
+\   's':  'ﱵ',
+\   'S':  'ﱵ',
+\   '': 'ﱵ⥣',
+\   't':  ' ',
 \ }
 let g:airline_highlighting_cache = 1
+
+let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_powerline_fonts = 1
 let g:airline_symbols.branch = ''
 let g:airline_symbols.crypt = ''
 let g:airline_symbols.readonly = ''
